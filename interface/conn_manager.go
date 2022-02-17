@@ -3,7 +3,7 @@
  * @Author: yt.yin
  */
 
-package iface
+package I
 
 // ConnManagerI TCP 连接管理，添加、删除、通过以恶搞连接ID获得连接对象，当前连接数、清空全部连接等方法
 type ConnManagerI interface{

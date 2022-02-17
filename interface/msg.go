@@ -3,7 +3,7 @@
  * @Author: yt.yin
  */
 
-package iface
+package I
 
 // MsgI 通用的message接口
 type MsgI interface {

@@ -3,7 +3,7 @@
  * @Author: yt.yin
  */
 
-package iface
+package I
 
 // ServerI 定义服务端的接口
 type ServerI interface {
