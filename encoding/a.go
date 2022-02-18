@@ -5,8 +5,13 @@
 
 package encoding
 
-type EncodeGroup struct{
+// 定义包内的一个解码组，涵盖定义的常见的解码器
+type encodeGroup struct{
 	AsciiEncoder
+	BcdEncoder
+	BinaryEncoder
+	HexEncoder
 }
 
-var EncodeGroupApp = new(EncodeGroup)
+// EncodeGroup 对外统一开放一个解码组
+var EncodeGroup = new(encodeGroup)

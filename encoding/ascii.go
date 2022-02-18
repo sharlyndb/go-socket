@@ -23,6 +23,18 @@ func (a AsciiEncoder) Encode(data []byte) ([]byte, error) {
 	return bs, nil
 }
 
+// Decode 指定长度 ASCII 解码
+func (a AsciiEncoder) Decode(data []byte) ([]byte, error) {
+	bs := make([]byte,len(data))
+	for _, d := range data {
+		if d > 127 {
+			return nil, fmt.Errorf("无效的 ASCII 字符：'%s'", string(d))
+		}
+		bs = append(bs,d)
+	}
+	return bs, nil
+}
+
 // AssignLenDecode 指定长度 ASCII 解码
 func (a AsciiEncoder) AssignLenDecode(data []byte, length int) ([]byte, int, error) {
 	// 要解码的长度必须不小于原始字节数组的长度
@@ -40,14 +52,3 @@ func (a AsciiEncoder) AssignLenDecode(data []byte, length int) ([]byte, int, err
 	return out, length, nil
 }
 
-// Decode 指定长度 ASCII 解码
-func (a AsciiEncoder) Decode(data []byte) ([]byte, error) {
-	bs := make([]byte,len(data))
-	for _, d := range data {
-		if d > 127 {
-			return nil, fmt.Errorf("无效的 ASCII 字符：'%s'", string(d))
-		}
-		bs = append(bs,d)
-	}
-	return bs, nil
-}

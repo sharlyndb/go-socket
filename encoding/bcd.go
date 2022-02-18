@@ -9,11 +9,39 @@ import (
 	"bytes"
 	"encoding/hex"
 	"errors"
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 // BcdEncoder bcd 编码一般只针对数字
 type BcdEncoder struct{}
+
+// Encode 编码
+func (b *BcdEncoder) Encode (src []byte)  (dst []byte, err error){
+	if len(src)%2 != 0 {
+		src = append([]byte("0"), src...)
+	}
+	return bcd(src)
+}
+
+// Decode 解码
+func (b *BcdEncoder) Decode(src []byte) (dst []byte, err error){
+	hexStr := hex.EncodeToString(src)
+	return []byte(hexStr),nil
+}
+
+// AssignLenDecode 指定长度解析
+func (b *BcdEncoder) AssignLenDecode(src []byte, length int) ([]byte, error){
+	hexStr := hex.EncodeToString(src)
+	l := len(hexStr)
+	if l == length{
+		return []byte(hexStr),nil
+	}else if length == l-1 && strings.HasPrefix(hexStr,"0"){
+		return []byte(hexStr[1:]),nil
+	}
+	return nil,fmt.Errorf("原始字节数组长度和指定解码长度不匹配， 期望长度 %d， 实际长度 %d", length, l)
+}
 
 // Uint64ToBcd 64位无符号正数转bcd
 func(b *BcdEncoder) Uint64ToBcd(v uint64) ([]byte,error) {
