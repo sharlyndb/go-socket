@@ -13,7 +13,16 @@ import (
 // HexEncoder hex 编码器
 type HexEncoder struct{}
 
+// Encode 编码 []byte{0x55, 0xAA} 被转成 55AA
+func (h *HexEncoder) Encode (src []byte)  (dst []byte, err error){
+	s := strings.ToUpper(hex.EncodeToString(src))
+	return []byte(s),nil
+}
 
+// Decode 解码 AABBCC 转成字节数组 []byte{0xAA, 0xBB, 0xCC}
+func (h *HexEncoder) Decode(src []byte) (dst []byte, err error){
+	return hex.DecodeString(string(src))
+}
 
 // BytesToHex 字节数组转hex
 // []byte{0x55, 0xAA} 被转成 55AA
