@@ -75,6 +75,7 @@ func (e *epoll) Wait() ([]net.Conn, error) {
 retry:
 	n, err := unix.EpollWait(e.fd, events, 100)
 	if err != nil {
+		// 判断是否有 EINTR错误
 		if err == unix.EINTR {
 			goto retry
 		}
