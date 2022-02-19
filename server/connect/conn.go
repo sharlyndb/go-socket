@@ -22,8 +22,8 @@ type ConnI interface {
 	// Context 返回上下文，获取连接推出状态等
 	Context() context.Context
 
-	// TCPConn 获取原始的 tcp socket 连接
-	TCPConn() *net.TCPConn
+	// Conn 获取原始的 socket 连接
+	Conn() net.Conn
 
 	// ConnID 连接ID
 	ConnID() int

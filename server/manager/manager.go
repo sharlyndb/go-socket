@@ -13,13 +13,13 @@ import "go-socket/server/connect"
 type ManagerI interface{
 
 	// Add 添加链接
-	Add(conn connect.ConnI)
+	Add(conn connect.ConnI) error
 
 	// Remove 删除连接
-	Remove(conn connect.ConnI)
+	Remove(conn connect.ConnI) error
 
 	// Conn 根据ConnID获取Tcp连接
-	Conn(connID uint32) (connect.ConnI, error)
+	Conn(connID int) (connect.ConnI, error)
 
 	// Size 获取当前连接数
 	Size() int
