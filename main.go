@@ -5,9 +5,7 @@
 
 package main
 
-func main() {
 
-}
 
 
 
