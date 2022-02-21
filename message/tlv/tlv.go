@@ -7,8 +7,8 @@ package tlv
 
 import "go-socket/message/simple"
 
-// TlvMsgI 定义TLV消息模版
-type TlvMsgI interface {
+// TLVMsgI 定义TLV消息模版
+type TLVMsgI interface {
 
 	simple.SimpleMsgI
 
@@ -37,8 +37,8 @@ type TlvMsgI interface {
 	SetICV(c []byte)
 }
 
-// TlvMsg TLV 格式报文消息
-type TlvMsg struct{
+// TLVMsg TLV 格式报文消息
+type TLVMsg struct{
 
 	simple.SimpleMsg
 
@@ -56,8 +56,8 @@ type TlvMsg struct{
 }
 
 // NewTLVMsg new 一个message
-func NewTLVMsg(tag,begin,end,icv[]byte,msg simple.SimpleMsg) *TlvMsg {
-	return &TlvMsg{
+func NewTLVMsg(tag,begin,end,icv[]byte,msg simple.SimpleMsg) *TLVMsg {
+	return &TLVMsg{
 		SimpleMsg: msg,
 		Tag:       tag,
 		Begin:     begin,
@@ -67,42 +67,42 @@ func NewTLVMsg(tag,begin,end,icv[]byte,msg simple.SimpleMsg) *TlvMsg {
 }
 
 // GetTag 获取报文标识
-func (T *TlvMsg) GetTag() []byte {
+func (T *TLVMsg) GetTag() []byte {
 	return T.Tag
 }
 
 // GetBegin 获取报文开始标识
-func (T *TlvMsg) GetBegin() []byte {
+func (T *TLVMsg) GetBegin() []byte {
 	return T.Begin
 }
 
 // GetEnd 获取报文结束标识
-func (T *TlvMsg) GetEnd() []byte {
+func (T *TLVMsg) GetEnd() []byte {
 	return T.End
 }
 
 // GetICV 获取报文校验
-func (T *TlvMsg) GetICV() []byte {
+func (T *TLVMsg) GetICV() []byte {
 	return T.ICV
 }
 
 // SetTag 设置报文标识
-func (T *TlvMsg) SetTag(tag []byte) {
+func (T *TLVMsg) SetTag(tag []byte) {
 	T.Tag = tag
 }
 
 // SetBegin 设置报文开始标识
-func (T *TlvMsg) SetBegin(b []byte) {
+func (T *TLVMsg) SetBegin(b []byte) {
 	T.Begin = b
 }
 
 // SetEnd 设置报文结束标识
-func (T *TlvMsg) SetEnd(e []byte) {
+func (T *TLVMsg) SetEnd(e []byte) {
 	T.End = e
 }
 
 // SetICV 设置报文校验
-func (T *TlvMsg) SetICV(c []byte) {
+func (T *TLVMsg) SetICV(c []byte) {
 	T.ICV = c
 }
 
