@@ -7,9 +7,10 @@ package connect
 
 import (
 	"context"
-	"github.com/goworkeryyt/go-socket/server/handler"
 	"net"
 	"sync"
+
+	"github.com/goworkeryyt/go-socket/server/handler"
 )
 
 // ConnI 定义连接接口
