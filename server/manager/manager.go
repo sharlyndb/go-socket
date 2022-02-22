@@ -5,7 +5,7 @@
 
 package manager
 
-import "go-socket/server/connect"
+import "github.com/goworkeryyt/go-socket/server/connect"
 
 // 定义连接管理器的接口
 

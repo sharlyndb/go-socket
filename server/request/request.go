@@ -5,7 +5,7 @@
 
 package request
 
-import "go-socket/server/connect"
+import "github.com/goworkeryyt/go-socket/server/connect"
 
 // RequestI 客户端请求的连接信息和数据
 type RequestI interface{

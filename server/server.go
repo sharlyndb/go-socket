@@ -5,7 +5,7 @@
 
 package server
 
-import "go-socket/server/manager"
+import "github.com/goworkeryyt/go-socket/server/manager"
 
 // ServerI 定义服务端的接口
 type ServerI interface {

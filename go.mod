@@ -1,4 +1,4 @@
-module go-socket
+module github.com/goworkeryyt/go-socket
 
 go 1.17
 

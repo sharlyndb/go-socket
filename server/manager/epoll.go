@@ -7,7 +7,7 @@ package manager
 
 import (
 	"errors"
-	"go-socket/server/connect"
+	"github.com/goworkeryyt/go-socket/server/connect"
 	"golang.org/x/sys/unix"
 	"net"
 	"reflect"

@@ -7,7 +7,7 @@ package connect
 
 import (
 	"context"
-	"go-socket/server/handler"
+	"github.com/goworkeryyt/go-socket/server/handler"
 	"net"
 	"sync"
 )

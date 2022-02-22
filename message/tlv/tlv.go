@@ -5,7 +5,7 @@
 
 package tlv
 
-import "go-socket/message/simple"
+import "github.com/goworkeryyt/go-socket/message/simple"
 
 // TLVMsgI 定义TLV消息模版
 type TLVMsgI interface {
