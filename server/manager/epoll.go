@@ -7,12 +7,13 @@ package manager
 
 import (
 	"errors"
-	"github.com/goworkeryyt/go-socket/server/connect"
-	"golang.org/x/sys/unix"
 	"net"
 	"reflect"
 	"sync"
 	"syscall"
+
+	"github.com/goworkeryyt/go-socket/server/connect"
+	"golang.org/x/sys/unix"
 )
 
 // EpollManager 基于 linux epoll 实现连接管理
