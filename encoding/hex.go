@@ -35,3 +35,33 @@ func (e *HexEncoder) BytesToHex(data []byte) string{
 func (e *HexEncoder) HexToBytes(hexStr string) ([]byte, error) {
 	return hex.DecodeString(hexStr)
 }
+
+// HexBCC 计算BCC校验码
+func (e *HexEncoder) HexBCC(hexStr string) string {
+	hexToBytes, err := e.HexToBytes(hexStr)
+	if err != nil {
+		return ""
+	}
+	length := len(hexToBytes)
+	if length < 1 {
+		return ""
+	}
+	bcc := hexToBytes[0]
+	if length > 1 {
+		for i := 1; i < length; i++ {
+			bcc = bcc ^ hexToBytes[i]
+		}
+	}
+	return e.BytesToHex([]byte{bcc & 0xFF})
+}
+
+// BytesBCC 计算 BCC
+func BytesBCC(bytes []byte) byte {
+	bcc := bytes[0]
+	if len(bytes) > 1 {
+		for i := 1; i < len(bytes); i++ {
+			bcc = bcc ^ bytes[i]
+		}
+	}
+	return bcc & 0xFF
+}
